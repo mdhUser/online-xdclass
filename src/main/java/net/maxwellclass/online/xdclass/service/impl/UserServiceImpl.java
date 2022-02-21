@@ -30,7 +30,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public int save(Map<String, String> userInfo) {
-        User user = parseUser(userInfo);
+        User user = parseToUser(userInfo);
         if (null==user)
             return -1;
         return userMapper.save(user);
@@ -41,14 +41,14 @@ public class UserServiceImpl implements UserService {
      * @param userInfo
      * @return
      */
-    private User parseUser(Map<String, String> userInfo) {
+    private User parseToUser(Map<String, String> userInfo) {
         if (userInfo.containsKey("phone")
                 && userInfo.containsKey("pwd")
                 && userInfo.containsKey("name")) {
             User user = new User();
             user.setName(userInfo.get("name"));
             user.setPhone(userInfo.get("phone"));
-            user.setHeadImg(userInfo.get("headImg"));
+            user.setHeadImg(CommonUtils.getRandomImg());
             user.setCreateTime(new Date());
             String pwd = userInfo.get("pwd");
             //MD5加密

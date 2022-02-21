@@ -22,6 +22,7 @@ public class Episode {
     @JsonIgnore
     private Integer chapterId;
     private Integer free;
+    @JsonIgnore
     private Integer videoId;
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date createTime;

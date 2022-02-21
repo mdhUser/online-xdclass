@@ -14,6 +14,7 @@ public class CommonUtils {
 
     /**
      * MD5加密工具
+     *
      * @param data
      * @return
      */
@@ -32,5 +33,20 @@ public class CommonUtils {
         }
         return null;
     }
+
+    private static final String[] headImg = {
+            "https://xd-video-pc-img.oss-cnbeijing.aliyuncs.com/xdclass_pro/default/head_img/12.jpeg" ,
+            "https://xd-video-pc-img.oss-cnbeijing.aliyuncs.com/xdclass_pro/default/head_img/11.jpeg" ,
+            "https://xd-video-pc-img.oss-cnbeijing.aliyuncs.com/xdclass_pro/default/head_img/13.jpeg" ,
+            "https://xd-video-pc-img.oss-cnbeijing.aliyuncs.com/xdclass_pro/default/head_img/14.jpeg" ,
+            "https://xd-video-pc-img.oss-cnbeijing.aliyuncs.com/xdclass_pro/default/head_img/15.jpeg"
+    };
+
+    public static String getRandomImg() {
+        int index = (int) ((Math.random()) * headImg.length);
+        return headImg[index];
+    }
+
+
 
 }

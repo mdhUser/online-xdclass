@@ -1,5 +1,6 @@
 package net.maxwellclass.online.xdclass.controller;
 
+import net.maxwellclass.online.xdclass.entity.User;
 import net.maxwellclass.online.xdclass.service.UserService;
 import net.maxwellclass.online.xdclass.utils.JsonData;
 import org.apache.ibatis.annotations.Param;
@@ -29,6 +30,14 @@ public class UserController {
         int rows = userService.save(userInfo);
         return rows == 1 ?
                 JsonData.buildSuccess("用户创建成功！") : JsonData.buildError(REGISTRY_FAIRY.getCode(), REGISTRY_FAIRY.getMsg());
+    }
+
+    @GetMapping("/findByPhone")
+    public JsonData findByPhone(String phone) {
+        User user = userService.findByPhone(phone);
+        if (null == user)
+            return JsonData.buildError("该用户未注册");
+        return JsonData.buildSuccess(user);
     }
 
 
