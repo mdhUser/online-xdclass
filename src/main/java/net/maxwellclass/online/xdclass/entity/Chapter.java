@@ -1,7 +1,7 @@
 package net.maxwellclass.online.xdclass.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import java.util.Date;
@@ -12,11 +12,12 @@ import java.util.List;
  */
 
 @Data
-@JsonInclude(JsonInclude.Include.NON_NULL)
+//@JsonInclude(JsonInclude.Include.NON_NULL)
 public class Chapter {
 
 
     private Integer id;
+    @JsonIgnore
     private Integer videoId;
     private String title;
     private Integer ordered;

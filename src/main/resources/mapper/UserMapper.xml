@@ -5,12 +5,13 @@
 <mapper namespace="net.maxwellclass.online.xdclass.mapper.UserMapper">
 
     <insert id="save" parameterType="user">
-
-
+        insert into user (name, pwd, head_img, phone, create_time)
+        values (#{name,jdbcType=VARCHAR}, #{pwd,jdbcType=VARCHAR}, #{headImg,jdbcType=VARCHAR},
+                #{phone,jdbcType=VARCHAR},
+                #{createTime,jdbcType=TIMESTAMP})
     </insert>
 
-
-
+    <!-- 根据手机号查询 -->
     <select id="findByPhone" resultType="user">
         select *
         from user

@@ -15,9 +15,6 @@ public class JsonData {
     //返回信息
     private String msg;
 
-    public JsonData() {
-    }
-
     public JsonData(Integer code, Object data, String msg) {
         this.code = code;
         this.data = data;
@@ -27,6 +24,11 @@ public class JsonData {
     public JsonData(Integer code, Object data) {
         this.code = code;
         this.data = data;
+    }
+
+    public JsonData(Integer code, String msg) {
+        this.code = code;
+        this.msg = msg;
     }
 
     //todo 成功不返回数据

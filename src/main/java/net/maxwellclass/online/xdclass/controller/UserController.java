@@ -1,12 +1,15 @@
 package net.maxwellclass.online.xdclass.controller;
 
-import net.maxwellclass.online.xdclass.entity.User;
+import net.maxwellclass.online.xdclass.service.UserService;
 import net.maxwellclass.online.xdclass.utils.JsonData;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.apache.ibatis.annotations.Param;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
+
+import static net.maxwellclass.online.xdclass.exception.type.ExcepetionEnum.REGISTRY_FAIRY;
 
 /**
  * @description:
@@ -18,14 +21,15 @@ import java.util.Map;
 @RequestMapping("api/v1/pri/user")
 public class UserController {
 
+    @Autowired
+    private UserService userService;
 
-
-
-    public JsonData regiser(@RequestParam Map<String,String> userInfo){
-           return JsonData.buildSuccess();
+    @PostMapping("/register")
+    public JsonData regiser(@RequestBody Map<String, String> userInfo) {
+        int rows = userService.save(userInfo);
+        return rows == 1 ?
+                JsonData.buildSuccess("用户创建成功！") : JsonData.buildError(REGISTRY_FAIRY.getCode(), REGISTRY_FAIRY.getMsg());
     }
-
-
 
 
 }
