@@ -1,6 +1,6 @@
 package net.maxwellclass.online.xdclass.mapper;
 
-import net.maxwellclass.online.xdclass.entity.User;
+import net.maxwellclass.online.xdclass.model.entity.User;
 
 /**
  * @description:
@@ -14,4 +14,5 @@ public interface UserMapper {
 
       int save(User user);
 
+      User findByPhoneAndPwd(String phone, String pwd);
 }

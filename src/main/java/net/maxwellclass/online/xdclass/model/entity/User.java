@@ -1,4 +1,4 @@
-package net.maxwellclass.online.xdclass.entity;
+package net.maxwellclass.online.xdclass.model.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;

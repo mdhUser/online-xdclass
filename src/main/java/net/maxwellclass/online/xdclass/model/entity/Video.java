@@ -1,7 +1,5 @@
-package net.maxwellclass.online.xdclass.entity;
+package net.maxwellclass.online.xdclass.model.entity;
 
-import com.alibaba.fastjson.annotation.JSONField;
-import com.alibaba.fastjson.support.spring.annotation.FastJsonFilter;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 

@@ -1,9 +1,7 @@
 package net.maxwellclass.online.xdclass.utils;
 
-import io.jsonwebtoken.Claims;
-import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.SignatureAlgorithm;
-import net.maxwellclass.online.xdclass.entity.User;
+import io.jsonwebtoken.*;
+import net.maxwellclass.online.xdclass.model.entity.User;
 
 import java.util.Date;
 
@@ -22,10 +20,11 @@ public class JWTUtils {
     //todo 令牌前缀
     private static final String TOKEN_PREFIX = "MaxwellClass";
     //todo subject
-    private static String SUBJECT = "MaxwellClass";
+    private final static String SUBJECT = "MaxwellClass";
 
     /**
      * 根据用户信息，生成令牌 token
+     *
      *
      * @param user
      * @return
@@ -44,10 +43,20 @@ public class JWTUtils {
         return token;
     }
 
+    /**
+     * 校验token的方法
+     * @param token
+     * @return
+     */
+    public static Claims checkJWT(String token){
 
-//    public static Claims checkJWT(String token){
-//
-//
-//    }
+        try {
+            final Claims claims = Jwts.parser().setSigningKey(SECRET).parseClaimsJws(token.replace(TOKEN_PREFIX,"")).getBody();
+            return claims;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
 
 }

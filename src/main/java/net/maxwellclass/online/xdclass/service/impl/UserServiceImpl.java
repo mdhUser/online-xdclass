@@ -1,9 +1,10 @@
 package net.maxwellclass.online.xdclass.service.impl;
 
-import net.maxwellclass.online.xdclass.entity.User;
+import net.maxwellclass.online.xdclass.model.entity.User;
 import net.maxwellclass.online.xdclass.mapper.UserMapper;
 import net.maxwellclass.online.xdclass.service.UserService;
 import net.maxwellclass.online.xdclass.utils.CommonUtils;
+import net.maxwellclass.online.xdclass.utils.JWTUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -31,13 +32,14 @@ public class UserServiceImpl implements UserService {
     @Override
     public int save(Map<String, String> userInfo) {
         User user = parseToUser(userInfo);
-        if (null==user)
+        if (null == user)
             return -1;
         return userMapper.save(user);
     }
 
     /**
      * 解析注册流程
+     *
      * @param userInfo
      * @return
      */
@@ -58,4 +60,23 @@ public class UserServiceImpl implements UserService {
 
         return null;
     }
+
+    /**
+     * 用户信息正确返回token
+     * @param phone
+     * @param pwd
+     * @return
+     */
+    @Override
+    public String findByPhoneAndPwd(String phone, String pwd) {
+        User user = userMapper.findByPhoneAndPwd(phone, pwd);
+        if (null == user)
+            return null;
+        else {
+            String token = JWTUtils.geneJsonWebToken(user);
+            return token;
+        }
+    }
+
+
 }

@@ -1,7 +1,7 @@
 package net.maxwellclass.online.xdclass.controller;
 
-import net.maxwellclass.online.xdclass.entity.Video;
-import net.maxwellclass.online.xdclass.entity.VideoBanner;
+import net.maxwellclass.online.xdclass.model.entity.Video;
+import net.maxwellclass.online.xdclass.model.entity.VideoBanner;
 import net.maxwellclass.online.xdclass.service.VideoService;
 import net.maxwellclass.online.xdclass.utils.JsonData;
 import org.springframework.beans.factory.annotation.Autowired;

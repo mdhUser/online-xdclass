@@ -1,7 +1,7 @@
 package net.maxwellclass.online.xdclass.mapper;
 
-import net.maxwellclass.online.xdclass.entity.Video;
-import net.maxwellclass.online.xdclass.entity.VideoBanner;
+import net.maxwellclass.online.xdclass.model.entity.Video;
+import net.maxwellclass.online.xdclass.model.entity.VideoBanner;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
