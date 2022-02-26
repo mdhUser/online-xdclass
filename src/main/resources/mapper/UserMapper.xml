@@ -19,7 +19,7 @@
     </select>
 
     <!-- 根据手机号密码查询用户信息   -->
-    <select id="findByPhoneAndPwd" resultType="net.maxwellclass.online.xdclass.model.entity.User">
+    <select id="findByPhoneAndPwd" resultType="user">
         select *
         from user
         where phone = #{phone}
