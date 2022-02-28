@@ -1,5 +1,7 @@
 package net.maxwellclass.online.xdclass.utils;
 
+import java.io.Serializable;
+
 /**
  * @description:
  * @author: Maxwell

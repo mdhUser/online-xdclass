@@ -63,13 +63,15 @@ public class UserServiceImpl implements UserService {
 
     /**
      * 用户信息正确返回token
+     *
      * @param phone
      * @param pwd
      * @return
      */
     @Override
     public String findByPhoneAndPwd(String phone, String pwd) {
-        User user = userMapper.findByPhoneAndPwd(phone, pwd);
+        String parsePwd = CommonUtils.MD5(pwd);
+        User user = userMapper.findByPhoneAndPwd(phone, parsePwd);
         if (null == user)
             return null;
         else {
