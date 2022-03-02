@@ -2,6 +2,7 @@ package net.maxwellclass.online.xdclass.service.impl;
 
 import net.maxwellclass.online.xdclass.model.entity.User;
 import net.maxwellclass.online.xdclass.mapper.UserMapper;
+import net.maxwellclass.online.xdclass.model.response.ResponseUser;
 import net.maxwellclass.online.xdclass.service.UserService;
 import net.maxwellclass.online.xdclass.utils.CommonUtils;
 import net.maxwellclass.online.xdclass.utils.JWTUtils;
@@ -78,6 +79,11 @@ public class UserServiceImpl implements UserService {
             String token = JWTUtils.geneJsonWebToken(user);
             return token;
         }
+    }
+
+    @Override
+    public ResponseUser findByUserId(Integer userId) {
+        return userMapper.findByUserId(userId);
     }
 
 

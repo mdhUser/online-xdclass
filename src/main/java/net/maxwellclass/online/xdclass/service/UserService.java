@@ -1,6 +1,7 @@
 package net.maxwellclass.online.xdclass.service;
 
 import net.maxwellclass.online.xdclass.model.entity.User;
+import net.maxwellclass.online.xdclass.model.response.ResponseUser;
 
 import java.util.Map;
 
@@ -15,8 +16,10 @@ public interface UserService {
 
     User findByPhone(String phone);
 
-    int save(Map<String,String> userInfo);
+    int save(Map<String, String> userInfo);
 
 
     String findByPhoneAndPwd(String phone, String pwd);
+
+    ResponseUser findByUserId(Integer userId);
 }

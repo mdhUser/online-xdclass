@@ -25,33 +25,33 @@ public class JWTUtils {
     /**
      * 根据用户信息，生成令牌 token
      *
-     *
      * @param user
      * @return
      */
     public static String geneJsonWebToken(User user) {
         String token = Jwts.builder().setSubject(SUBJECT)
-                .claim("head_img" , user.getHeadImg())
-                .claim("id" , user.getId())
-                .claim("name" , user.getName())
+                .claim("head_img", user.getHeadImg())
+                .claim("id", user.getId())
+                .claim("name", user.getName())
                 .setIssuedAt(new Date())
                 .setExpiration(new Date(System.currentTimeMillis() + EXPIRE))
                 .signWith(SignatureAlgorithm.HS256, SECRET).compact();
 
-        token=TOKEN_PREFIX+token;
+        token = TOKEN_PREFIX + token;
 
         return token;
     }
 
     /**
      * 校验token的方法
+     *
      * @param token
      * @return
      */
-    public static Claims checkJWT(String token){
+    public static Claims checkJWT(String token) {
 
         try {
-            final Claims claims = Jwts.parser().setSigningKey(SECRET).parseClaimsJws(token.replace(TOKEN_PREFIX,"")).getBody();
+            final Claims claims = Jwts.parser().setSigningKey(SECRET).parseClaimsJws(token.replace(TOKEN_PREFIX, "")).getBody();
             return claims;
         } catch (Exception e) {
             e.printStackTrace();

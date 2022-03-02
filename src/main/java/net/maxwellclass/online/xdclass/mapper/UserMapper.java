@@ -1,6 +1,7 @@
 package net.maxwellclass.online.xdclass.mapper;
 
 import net.maxwellclass.online.xdclass.model.entity.User;
+import net.maxwellclass.online.xdclass.model.response.ResponseUser;
 
 /**
  * @description:
@@ -10,9 +11,11 @@ import net.maxwellclass.online.xdclass.model.entity.User;
  */
 public interface UserMapper {
 
-      User findByPhone(String phone);
+    User findByPhone(String phone);
 
-      int save(User user);
+    int save(User user);
 
-      User findByPhoneAndPwd(String phone, String pwd);
+    User findByPhoneAndPwd(String phone, String pwd);
+
+    ResponseUser findByUserId(Integer userId);
 }

@@ -34,18 +34,19 @@ public class LoginInterceptor implements HandlerInterceptor {
 
         try {
             String accessToken = request.getHeader("token");
-            if (accessToken == null)
+            if (accessToken == null) {
                 accessToken = request.getParameter("token");
+            }
             if (StringUtils.isNoneBlank(accessToken)) {
                 Claims claims = JWTUtils.checkJWT(accessToken);
                 if (claims == null) {
                     //告诉登录失败，重新登陆
-                    sendJSonMessage(response, JsonData.buildError("登录过期！重新登陆！！"));
+                    sendJSonMessage(response, JsonData.buildError("登录过期！重新登陆！!"));
                     return false;
                 }
                 Integer id = (Integer) claims.get("id");
                 String name = (String) claims.get("name");
-                request.setAttribute("usr_id", id);
+                request.setAttribute("user_id", id);
                 request.setAttribute("name", name);
                 return true;
             }
@@ -66,7 +67,7 @@ public class LoginInterceptor implements HandlerInterceptor {
         try(PrintWriter writer = response.getWriter())
         {
             ObjectMapper objectMapper = new ObjectMapper();
-            response.setContentType("application/json; charset=utf-8");
+            response.setContentType("application/json;charset=utf-8");
             writer.print(objectMapper.writeValueAsString(obj));
             response.flushBuffer();
         }catch (Exception e){
@@ -74,15 +75,5 @@ public class LoginInterceptor implements HandlerInterceptor {
         }
 
 
-    }
-
-    @Override
-    public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
-        HandlerInterceptor.super.postHandle(request, response, handler, modelAndView);
-    }
-
-    @Override
-    public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
-        HandlerInterceptor.super.afterCompletion(request, response, handler, ex);
     }
 }
