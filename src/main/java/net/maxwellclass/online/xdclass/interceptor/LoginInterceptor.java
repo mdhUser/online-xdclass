@@ -53,27 +53,26 @@ public class LoginInterceptor implements HandlerInterceptor {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        sendJSonMessage(response,JsonData.buildError("请先登录!"));
+        sendJSonMessage(response, JsonData.buildError("请先登录!"));
         return false;
     }
 
     /**
      * 登录过期,未登录返回JSON信息
+     *
      * @param response
      * @param obj
      */
     public static void sendJSonMessage(HttpServletResponse response, Object obj) {
 
-        try(PrintWriter writer = response.getWriter())
-        {
+        response.setContentType("application/json;charset=UTF-8");
+        try (PrintWriter writer = response.getWriter()) {
             ObjectMapper objectMapper = new ObjectMapper();
-            response.setContentType("application/json;charset=utf-8");
             writer.print(objectMapper.writeValueAsString(obj));
             response.flushBuffer();
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
-
 
     }
 }
