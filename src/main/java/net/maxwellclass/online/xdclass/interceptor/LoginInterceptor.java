@@ -53,7 +53,7 @@ public class LoginInterceptor implements HandlerInterceptor {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        sendJSonMessage(response, JsonData.buildError("请先登录!"));
+        sendJSonMessage(response, JsonData.buildError("请先登录! !"));
         return false;
     }
 
