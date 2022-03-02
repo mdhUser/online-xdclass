@@ -22,7 +22,7 @@ public class CustomExceptionHandler {
     @ResponseBody
     public JsonData handle(Exception e) {
 
-        logger.error("[系统异常]{}", e);
+        logger.error("[系统异常]{}", e.getMessage());
 
         if (e instanceof MAXException) {
             MAXException maxException = (MAXException) e;
@@ -32,6 +32,4 @@ public class CustomExceptionHandler {
         }
 
     }
-
-
 }

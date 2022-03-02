@@ -34,5 +34,5 @@ public interface VideoMapper {
      * @param videoId
      * @return
      */
-    Video findDetailById(@Param("videoId") int videoId);
+    Video findDetailById(int videoId);
 }
