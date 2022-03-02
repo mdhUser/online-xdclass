@@ -15,7 +15,7 @@ public class VideoOrder {
 
     private Integer id;
     private String outTradeNo;
-    private Long state;
+    private Integer state;
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date createTime;
     private Integer totalFee;

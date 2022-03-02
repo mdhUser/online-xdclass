@@ -17,12 +17,22 @@ public interface VideoMapper {
 
     /**
      * 查询所有视频列表
+     *
      * @return
      */
     List<Video> videoList();
 
-
+    /**
+     * 轮播图
+     * @return
+     */
     List<VideoBanner> listBanner();
 
+
+    /**
+     * 查询视频详情
+     * @param videoId
+     * @return
+     */
     Video findDetailById(@Param("videoId") int videoId);
 }

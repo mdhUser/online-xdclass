@@ -6,7 +6,6 @@ import net.maxwellclass.online.xdclass.utils.JWTUtils;
 import net.maxwellclass.online.xdclass.utils.JsonData;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.web.servlet.HandlerInterceptor;
-import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -46,8 +45,10 @@ public class LoginInterceptor implements HandlerInterceptor {
                 }
                 Integer id = (Integer) claims.get("id");
                 String name = (String) claims.get("name");
+                String headImg = (String)claims.get("head_img");
                 request.setAttribute("user_id", id);
                 request.setAttribute("name", name);
+                request.setAttribute("head_img",headImg);
                 return true;
             }
         } catch (Exception e) {
