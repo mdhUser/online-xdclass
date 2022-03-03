@@ -26,7 +26,7 @@
           and pwd = #{pwd}
     </select>
 
-    <select id="findByUserId" resultType="responseUser">
+    <select id="findByUserId" resultType="userResponse">
         select name,head_img,phone,create_time
         from user where id =#{userId}
     </select>

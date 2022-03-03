@@ -10,7 +10,7 @@ import java.util.Date;
  */
 
 @Data
-public class ResponseUser {
+public class UserResponse {
 
     private String name;
     private String headImg;

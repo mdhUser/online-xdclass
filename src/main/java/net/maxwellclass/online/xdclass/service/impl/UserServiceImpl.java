@@ -2,7 +2,7 @@ package net.maxwellclass.online.xdclass.service.impl;
 
 import net.maxwellclass.online.xdclass.model.entity.User;
 import net.maxwellclass.online.xdclass.mapper.UserMapper;
-import net.maxwellclass.online.xdclass.model.response.ResponseUser;
+import net.maxwellclass.online.xdclass.model.response.UserResponse;
 import net.maxwellclass.online.xdclass.service.UserService;
 import net.maxwellclass.online.xdclass.utils.CommonUtils;
 import net.maxwellclass.online.xdclass.utils.JWTUtils;
@@ -82,7 +82,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public ResponseUser findByUserId(Integer userId) {
+    public UserResponse findByUserId(Integer userId) {
         return userMapper.findByUserId(userId);
     }
 

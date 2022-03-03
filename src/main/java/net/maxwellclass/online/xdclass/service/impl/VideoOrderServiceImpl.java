@@ -7,12 +7,14 @@ import net.maxwellclass.online.xdclass.model.entity.Episode;
 import net.maxwellclass.online.xdclass.model.entity.PlayRecord;
 import net.maxwellclass.online.xdclass.model.entity.Video;
 import net.maxwellclass.online.xdclass.model.entity.VideoOrder;
+import net.maxwellclass.online.xdclass.model.response.VideoOrderResponse;
 import net.maxwellclass.online.xdclass.service.VideoOrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
+import java.util.List;
 import java.util.UUID;
 
 
@@ -58,8 +60,8 @@ public class VideoOrderServiceImpl implements VideoOrderService {
         //生成播放记录
         if (rows == 1) {
             Episode episode = episodeMapper.findFirstEpisodeById(videoId);
-            if (episode==null){
-                throw new MAXException(-1,"视频没有集信息请运营人员检查！");
+            if (episode == null) {
+                throw new MAXException(-1, "视频没有集信息请运营人员检查！");
             }
             PlayRecord playRecord = new PlayRecord();
             playRecord.setVideoId(episode.getVideoId());
@@ -73,4 +75,9 @@ public class VideoOrderServiceImpl implements VideoOrderService {
         return rows;
     }
 
+
+    @Override
+    public List<VideoOrderResponse> videoOrderList(Integer userId) {
+        return videoOrderMapper.selectVideoOrderList(userId);
+    }
 }

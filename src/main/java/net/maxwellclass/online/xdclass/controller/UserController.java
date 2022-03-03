@@ -1,7 +1,7 @@
 package net.maxwellclass.online.xdclass.controller;
 
 import net.maxwellclass.online.xdclass.model.request.LoginRequest;
-import net.maxwellclass.online.xdclass.model.response.ResponseUser;
+import net.maxwellclass.online.xdclass.model.response.UserResponse;
 import net.maxwellclass.online.xdclass.service.UserService;
 import net.maxwellclass.online.xdclass.utils.JsonData;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -52,7 +52,7 @@ public class UserController {
             return JsonData.buildError("查询失败");
         }
 
-        ResponseUser user = userService.findByUserId(userId);
+        UserResponse user = userService.findByUserId(userId);
 
         return JsonData.buildSuccess(user);
 

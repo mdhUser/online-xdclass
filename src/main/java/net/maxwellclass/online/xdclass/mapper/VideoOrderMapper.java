@@ -1,6 +1,9 @@
 package net.maxwellclass.online.xdclass.mapper;
 
 import net.maxwellclass.online.xdclass.model.entity.VideoOrder;
+import net.maxwellclass.online.xdclass.model.response.VideoOrderResponse;
+
+import java.util.List;
 
 public interface VideoOrderMapper {
 
@@ -21,5 +24,10 @@ public interface VideoOrderMapper {
      */
     int saveOrder(VideoOrder videoOrder);
 
-
+    /**
+     * 查询用户视频下单列表
+     * @param userId
+     * @return
+     */
+    List<VideoOrderResponse> selectVideoOrderList(Integer userId);
 }
