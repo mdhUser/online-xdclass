@@ -27,7 +27,7 @@
         select *
         from video_order
         where user_id = #{userId}
+        order by create_time desc
     </select>
-
 
 </mapper>

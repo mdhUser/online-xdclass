@@ -4,18 +4,18 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="net.maxwellclass.online.xdclass.mapper.VideoMapper">
 
-    <select id="videoList" resultType="video">
+    <select id="videoList" resultType="videoResponseList">
         select *
         from video
     </select>
 
-    <select id="listBanner" resultType="videoBanner">
+    <select id="listBanner" resultType="videoBannerResponse">
         select *
         from video_banner
         order by weight
     </select>
 
-    <resultMap id="VideoDetailResultMap" type="video">
+    <resultMap id="VideoDetailResultMap" type="videoResponse">
         <id column="id" jdbcType="INTEGER" property="id"></id>
         <result column="title" jdbcType="VARCHAR" property="title"></result>
         <result column="summary" jdbcType="VARCHAR" property="title"></result>
@@ -23,12 +23,12 @@
         <result column="point" jdbcType="VARCHAR" property="point"></result>
         <result column="price" jdbcType="DOUBLE" property="price"></result>
         <result column="create_time" jdbcType="TIMESTAMP" property="createTime"></result>
-        <collection property="chapterList" ofType="chapter">
+        <collection property="chapterList" ofType="chapterResponse">
             <id column="chapter_id" jdbcType="INTEGER" property="id"></id>
             <result column="chapter_title" jdbcType="VARCHAR" property="title"></result>
             <result column="ordered" jdbcType="INTEGER" property="ordered"></result>
             <result column="chapter_create_time" jdbcType="TIMESTAMP" property="createTime"></result>
-            <collection property="episodeList" ofType="episode">
+            <collection property="episodeList" ofType="episodeResponse">
                 <id column="episode_id" jdbcType="INTEGER" property="id"></id>
                 <result column="episode_title" jdbcType="VARCHAR" property="title"></result>
                 <result column="num" jdbcType="INTEGER" property="num"></result>

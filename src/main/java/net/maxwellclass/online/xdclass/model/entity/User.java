@@ -17,7 +17,6 @@ public class User {
     private String pwd;
     private String headImg;
     private String phone;
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date createTime;
 
 

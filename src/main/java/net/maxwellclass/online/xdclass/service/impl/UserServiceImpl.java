@@ -25,10 +25,7 @@ public class UserServiceImpl implements UserService {
     private UserMapper userMapper;
 
 
-    @Override
-    public User findByPhone(String phone) {
-        return userMapper.findByPhone(phone);
-    }
+
 
     @Override
     public int save(Map<String, String> userInfo) {

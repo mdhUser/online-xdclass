@@ -16,7 +16,6 @@ public class VideoBanner {
     private Integer id;
     private String url;
     private String img;
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date createTime;
     private Integer weight;
 

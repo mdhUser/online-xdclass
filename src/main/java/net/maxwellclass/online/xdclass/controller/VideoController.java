@@ -2,6 +2,9 @@ package net.maxwellclass.online.xdclass.controller;
 
 import net.maxwellclass.online.xdclass.model.entity.Video;
 import net.maxwellclass.online.xdclass.model.entity.VideoBanner;
+import net.maxwellclass.online.xdclass.model.response.VideoBannerResponse;
+import net.maxwellclass.online.xdclass.model.response.VideoResponse;
+import net.maxwellclass.online.xdclass.model.response.VideoResponseList;
 import net.maxwellclass.online.xdclass.service.VideoService;
 import net.maxwellclass.online.xdclass.utils.JsonData;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,8 +31,8 @@ public class VideoController {
      * @return
      */
     @GetMapping("/list_banner")
-    public JsonData indexBanner() {
-        List<VideoBanner> bannerList = videoService.lsitBanner();
+    public JsonData listBanner() {
+        List<VideoBannerResponse> bannerList = videoService.lsitBanner();
         return JsonData.buildSuccess(bannerList);
     }
 
@@ -40,7 +43,7 @@ public class VideoController {
      */
     @RequestMapping(value = "/listVideo", method = RequestMethod.GET)
     public JsonData listVideo() {
-        List<Video> videos = videoService.getVideoAllList();
+        List<VideoResponseList> videos = videoService.getVideoAllList();
         return JsonData.buildSuccess(videos);
     }
 
@@ -52,7 +55,7 @@ public class VideoController {
      */
     @GetMapping("/findDetailById")
     public JsonData findDetailById(@RequestParam(value = "video_id") int videoId) {
-        Video video = videoService.findDetailById(videoId);
+        VideoResponse video = videoService.findDetailById(videoId);
         return JsonData.buildSuccess(video);
     }
 

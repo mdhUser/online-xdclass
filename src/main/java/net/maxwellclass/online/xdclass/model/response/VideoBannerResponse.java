@@ -7,19 +7,18 @@ import lombok.Data;
 import java.util.Date;
 
 /**
- * Maxwell课堂用户
+ * Maxwell
+ * 视频轮播图
  */
 
 @Data
-public class UserResponse {
+public class VideoBannerResponse {
 
-    private String name;
-    @JsonProperty("head_img")
-    private String headImg;
-    private String phone;
+    private String url;
+    private String img;
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone="GMT+8")
     @JsonProperty("create_time")
     private Date createTime;
-
+    private Integer weight;
 
 }

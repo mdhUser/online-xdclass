@@ -11,12 +11,6 @@ import net.maxwellclass.online.xdclass.model.response.UserResponse;
  */
 public interface UserMapper {
 
-    /**
-     * 根据手机号查询用户
-     * @param phone
-     * @return
-     */
-    User findByPhone(String phone);
 
     /**
      * 保存用户

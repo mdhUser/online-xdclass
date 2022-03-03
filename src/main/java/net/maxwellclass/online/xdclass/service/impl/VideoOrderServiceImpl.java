@@ -8,6 +8,7 @@ import net.maxwellclass.online.xdclass.model.entity.PlayRecord;
 import net.maxwellclass.online.xdclass.model.entity.Video;
 import net.maxwellclass.online.xdclass.model.entity.VideoOrder;
 import net.maxwellclass.online.xdclass.model.response.VideoOrderResponse;
+import net.maxwellclass.online.xdclass.model.response.VideoResponse;
 import net.maxwellclass.online.xdclass.service.VideoOrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -45,7 +46,7 @@ public class VideoOrderServiceImpl implements VideoOrderService {
         VideoOrder order = videoOrderMapper.findByUserIdAndVideoIdAndState(userId, videoId, IsPay.YES.getState());
         if (order != null) return 0;
 
-        Video video = videoMapper.findDetailById(videoId);
+        VideoResponse video = videoMapper.findDetailById(videoId);
         VideoOrder vo = new VideoOrder();
         vo.setVideoId(video.getId());
         vo.setCreateTime(new Date());

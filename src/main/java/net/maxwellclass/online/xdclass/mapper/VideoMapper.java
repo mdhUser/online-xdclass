@@ -1,8 +1,9 @@
 package net.maxwellclass.online.xdclass.mapper;
 
 import net.maxwellclass.online.xdclass.model.entity.Video;
-import net.maxwellclass.online.xdclass.model.entity.VideoBanner;
-import org.apache.ibatis.annotations.Param;
+import net.maxwellclass.online.xdclass.model.response.VideoBannerResponse;
+import net.maxwellclass.online.xdclass.model.response.VideoResponse;
+import net.maxwellclass.online.xdclass.model.response.VideoResponseList;
 
 import java.util.List;
 
@@ -20,13 +21,13 @@ public interface VideoMapper {
      *
      * @return
      */
-    List<Video> videoList();
+    List<VideoResponseList> videoList();
 
     /**
      * 轮播图
      * @return
      */
-    List<VideoBanner> listBanner();
+    List<VideoBannerResponse> listBanner();
 
 
     /**
@@ -34,5 +35,5 @@ public interface VideoMapper {
      * @param videoId
      * @return
      */
-    Video findDetailById(int videoId);
+    VideoResponse findDetailById(int videoId);
 }

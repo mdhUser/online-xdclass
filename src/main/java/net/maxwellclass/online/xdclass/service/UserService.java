@@ -14,8 +14,6 @@ import java.util.Map;
 public interface UserService {
 
 
-    User findByPhone(String phone);
-
     int save(Map<String, String> userInfo);
 
 

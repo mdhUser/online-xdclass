@@ -1,7 +1,8 @@
 package net.maxwellclass.online.xdclass.service;
 
-import net.maxwellclass.online.xdclass.model.entity.Video;
-import net.maxwellclass.online.xdclass.model.entity.VideoBanner;
+import net.maxwellclass.online.xdclass.model.response.VideoBannerResponse;
+import net.maxwellclass.online.xdclass.model.response.VideoResponse;
+import net.maxwellclass.online.xdclass.model.response.VideoResponseList;
 
 import java.util.List;
 
@@ -14,9 +15,9 @@ import java.util.List;
 public interface VideoService {
 
 
-    List<Video> getVideoAllList();
+    List<VideoResponseList> getVideoAllList();
 
-    List<VideoBanner> lsitBanner();
+    List<VideoBannerResponse> lsitBanner();
 
-    Video findDetailById(int videoId);
+    VideoResponse findDetailById(int videoId);
 }

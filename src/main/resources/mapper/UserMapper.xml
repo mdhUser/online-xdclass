@@ -11,13 +11,6 @@
                 #{createTime,jdbcType=TIMESTAMP})
     </insert>
 
-    <!-- 根据手机号查询 -->
-    <select id="findByPhone" resultType="user">
-        select *
-        from user
-        where phone = #{phone}
-    </select>
-
     <!-- 根据手机号密码查询用户信息   -->
     <select id="findByPhoneAndPwd" resultType="user">
         select *

@@ -1,8 +1,9 @@
 package net.maxwellclass.online.xdclass.service.impl;
 
-import net.maxwellclass.online.xdclass.model.entity.Video;
-import net.maxwellclass.online.xdclass.model.entity.VideoBanner;
 import net.maxwellclass.online.xdclass.mapper.VideoMapper;
+import net.maxwellclass.online.xdclass.model.response.VideoBannerResponse;
+import net.maxwellclass.online.xdclass.model.response.VideoResponse;
+import net.maxwellclass.online.xdclass.model.response.VideoResponseList;
 import net.maxwellclass.online.xdclass.service.VideoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,17 +24,17 @@ public class VideoServiceImpl implements VideoService {
     private VideoMapper videoMapper;
 
     @Override
-    public List<Video> getVideoAllList() {
+    public List<VideoResponseList> getVideoAllList() {
         return videoMapper.videoList();
     }
 
     @Override
-    public List<VideoBanner> lsitBanner() {
+    public List<VideoBannerResponse> lsitBanner() {
         return videoMapper.listBanner();
     }
 
     @Override
-    public Video findDetailById(int videoId) {
+    public VideoResponse findDetailById(int videoId) {
         return videoMapper.findDetailById(videoId);
     }
 }
