@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletRequest;
 import java.util.Map;
 
-import static net.maxwellclass.online.xdclass.exception.type.ExcepetionEnum.REGISTRY_FAIRY;
+import static net.maxwellclass.online.xdclass.type.ExcepetionEnum.REGISTRY_FAIRY;
 
 /**
  * @description:

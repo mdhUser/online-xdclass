@@ -1,11 +1,10 @@
 package net.maxwellclass.online.xdclass.service.impl;
 
 import net.maxwellclass.online.xdclass.exception.MAXException;
-import net.maxwellclass.online.xdclass.exception.type.IsPay;
+import net.maxwellclass.online.xdclass.type.IsPay;
 import net.maxwellclass.online.xdclass.mapper.*;
 import net.maxwellclass.online.xdclass.model.entity.Episode;
 import net.maxwellclass.online.xdclass.model.entity.PlayRecord;
-import net.maxwellclass.online.xdclass.model.entity.Video;
 import net.maxwellclass.online.xdclass.model.entity.VideoOrder;
 import net.maxwellclass.online.xdclass.model.response.VideoOrderResponse;
 import net.maxwellclass.online.xdclass.model.response.VideoResponse;

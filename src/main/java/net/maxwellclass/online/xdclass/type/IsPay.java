@@ -1,4 +1,4 @@
-package net.maxwellclass.online.xdclass.exception.type;
+package net.maxwellclass.online.xdclass.type;
 
 public enum IsPay {
 
