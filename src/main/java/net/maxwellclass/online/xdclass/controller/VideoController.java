@@ -35,8 +35,8 @@ public class VideoController {
     }
 
     /**
-     * 视频列表
      *
+     * 首页视频列表
      * @return
      */
     @RequestMapping(value = "/listVideo", method = RequestMethod.GET)

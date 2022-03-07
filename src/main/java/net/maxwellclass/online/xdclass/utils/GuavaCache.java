@@ -29,7 +29,7 @@ public class GuavaCache {
             .maximumSize(100)
             //并发数
             .concurrencyLevel(5)
-            //缓存过期时间，写入后10分钟过期
+            //缓存过期时间，写入后60分钟过期
             .expireAfterWrite(60, TimeUnit.MINUTES)
             //统计缓存命中率
             .recordStats()

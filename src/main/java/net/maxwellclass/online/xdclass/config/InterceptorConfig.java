@@ -1,4 +1,5 @@
 package net.maxwellclass.online.xdclass.config;
+import net.maxwellclass.online.xdclass.interceptor.CorsInterceptor;
 import net.maxwellclass.online.xdclass.interceptor.LoginInterceptor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -18,9 +19,19 @@ public class InterceptorConfig implements WebMvcConfigurer {
     LoginInterceptor loginInterceptor(){
         return new LoginInterceptor();
     }
+    @Bean
+    CorsInterceptor corsInterceptor(){
+        return new CorsInterceptor();
+    }
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
+
+        /**
+         * 拦截全部路径，这个跨域需要放在最上面
+         */
+        registry.addInterceptor(corsInterceptor()).addPathPatterns("/**");
+
         //拦截全部
         registry.addInterceptor(loginInterceptor()).addPathPatterns("/api/v1/pri/*/*/**")
                 //不拦截哪些目录
